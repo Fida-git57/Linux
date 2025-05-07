@@ -267,11 +267,39 @@ root		0002		775		0664
 Base permissions for dir is :0777
 Base permissions for file is :0666
 
-user  group  others
-rwx   rwx    r-x
+user/owner 	 group 	 others
+rwx  		 rwx   	 r-x
 r-read--->4
 w-write--->2
 x-execute--->1
+
+r- Read Permission
+w- Write Permission
+x- Execute Permission
+- --> No permission
+rwx
+rw- --> Owner of the file
+rw- --> Group to which the file belongs
+r-- --> Others
+
+rw-rw-r--		:664
+rwxrwx-x		:771
+
+rwx --> 7
+rw --> 6
+x --> 1
+- --> 0
+
+chmod 664 <file_name> --> To give rw for owner, rw for group, r for others
+chmod 777 <file_name> --> to rwx for owner, group and others
+chmod 740 <file_name> --> To give rwx for owner, r for groups, no permission for others
+
+chmod u+x <file_name> --> To give owner the executable permission
+chmod o-w <file_name> --> To Remove write permission from the the others
+
+u --> Owner
+o --> Others
+g --> Groups
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 Diff b/w absolute and relative path
@@ -357,4 +385,17 @@ nano
 		Hello guys............
 		ctrl o ---> for saving
 		ctrl x ---> for closing
+  ----------------------------------------------------------------------------------------------------------------------------
+  hostname --> To check the ip address of the system [private ip address]
+To display Ip address
+1. ifconfig
+		to install ifconfig ---> yum install net-toolse
+2. ip a
+3. hostname -i
+
+To change the hostname change to root user
+	hostname <new hostname>
+	exit
+
+ ----------------------------------------------------------------------------------------------------------------------------------
   
