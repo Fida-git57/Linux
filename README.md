@@ -250,3 +250,5 @@ An absolute path begins with root directory
 eg: /home/fidaarooj/linux/linux.txt
 and relative path begins with current directory
 eg: ./linux/linux.txt
+----------------------------------------------------------------------------------------------------------------------------------
+
