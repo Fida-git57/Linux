@@ -398,4 +398,101 @@ To change the hostname change to root user
 	exit
 
  ----------------------------------------------------------------------------------------------------------------------------------
+  service --> it will give the status of service
+		service /systemctl
+		
+		systemctl list-units-files ---> to see the running services
+		service sn option --> option(status/start/stop/restart)   sn=service name
+		
+	To change the services it should be done through the root user
+--------------------------------------------------------------------------------------------------------------------------
+last --> to check when users have logged in it gives all the info about what time we logged and logged out and date
+PROCESS MANAGEMENT COMMANDS
+
+-------------------------------------------------------------------------------------------------------------------------------
+ps: display the current process running
+ps -ef ---> gives detailed info e=all f=formatted way
+	PID =process ID
+	ppid=Praent Process ID
+ 
+------------------------------------------------------------------------------------------------------------------------------------
+kill --> kill the process 
+	kill -9 PID
+	
+	kill have 1-64 types of signal --> kill -l
+------------------------------------------------------------------------------------------------------------------------
+top --> monitory utility
+
+sar --> resources utilization 1hr-2hr back.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+ARCHIVE / DATA BACKUP Commands
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+zip ---> zip -r <zip filename> <directoryname>
+
+unzip --> to extract directory --> unzip <zip filename>
+To unzip in a particular directory --> unzip <zip filename> -d /tmp/
+
+tar -cvf--> creating tar file  ---> tar -cvf <tar filename> <directoryname>
+						tar -zcvf <tar filename.gz> <directoryname>
+	c=create   v=verbose  f=file system   .gz=gunzip  z=gunzip file   x=extract
+To extract tar file ---> tar -cvf <tar filename>	
+To extract gz file ---> tar -zcvf <gz filename>	
+
+	
+	
+e.g: 	devops              --------> 10GB
+	devops.zip          --------> 1GB
+	devops.tar	    --------> 500 MB
+	devopa.tar.gz	    ---------> 200 MB
+	compresses more
+ 
+ -----------------------------------------------------------------------------------------------------------------------------------------------
+USER/GROUP ADMINISTRATIVE 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+useradd <user_name> --> To add a user to the server    : ROOT USER CAN DO This
+
+RHEL 7.x onwards UID starts with 1000
+UID-->user ID
+
+RHEL 6.x or lower --> 500
+
+UID for root user -->0
+
+----------------------------------------------------------------------------------------------------------------------------------
+To set the password
+passwd <password>
+	If we set the password it will be in shadow file.
+	
+	passwd <user_name> --> To set the password for the user
+	ec2-user:!!:19239:0:99999:7:::
+	fida:!!:19253:0:99999:7:::
+		Here the !! we be replaced by password
+		
+	cat /etc/passwd
+-----------------------------------------------------------------------------------------------------------------------------------	
+Chage ---> changing the expiry date of the passwords
+	chage <username>
+	
+-------------------------------------------------------------------------------------------------------------------------------------------
+groupadd <groupname>   --> to create group
+To check cat /etc/group
+
+-----------------------------------------------------------------------------------------------------------
+usermod --> user modification
+To add one user to one group
+usermod -g <groupname> <which user>
+ 
+we can lock and unlock the user
+usermod -L <username>  --->LOCK
+usermod -U <username>  -->UNLOCK
   
+------------------------------------------------------------------------------------------------------------------------ 
+ To check the group
+ lid -g <group name>
+ 
+-------------------------------------------------------------------------------------------------------------------------	
+id <username>  or groups<username> ---> TO check a user is in how many groups
+
