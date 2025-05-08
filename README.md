@@ -496,3 +496,18 @@ usermod -U <username>  -->UNLOCK
 -------------------------------------------------------------------------------------------------------------------------	
 id <username>  or groups<username> ---> TO check a user is in how many groups
 
+---------------------------------------------------------------------------------------------------------------------------------
+free --> To find the  amount of free and used RAM memory
+
+dmidecode -t 17 --> It gives RAM info --> Only ROOT user
+
+vmstat --> It will give virtual memory statistics.
+
+mail -->Need to install
+	For installing we need to configure SMTP server with Linux server
+	
+	Syntax : mail emailid
+			 subject:
+			 (Email body)
+			 ctrl D 
+
