@@ -243,14 +243,6 @@ cat tcsd.conf
 	to display last 20 lines --> tail -n 20 <filename>
 	to display range of specific line numbers ---> sed -n "90,98p" <filename>
 ----------------------------------------------------------------------------------------------------------
-who --> To check all the users that are logged in to the server
-who -H ----> heading
-	This command gives about name,line,time,comment
-w ---> this gives more info about users and what they are doing
-uptime ---> how long the server is running
-users ---> which user are connected to the server --> just the user name in this command
-
----------------------------------------------------------------------------------------------------
 Diff b/w sudo su - and sudo su
 sudo su -  ---> it will switch to the root user then it will load the root user configurations and it will point to the root user home directory
 sudo su --> it will switch to the root user then it will not load the root user configurations and it will not point to the root user home directory
@@ -386,7 +378,7 @@ nano
 		ctrl o ---> for saving
 		ctrl x ---> for closing
   ----------------------------------------------------------------------------------------------------------------------------
-  hostname --> To check the ip address of the system [private ip address]
+hostname --> To check the ip address of the system [private ip address]
 To display Ip address
 1. ifconfig
 		to install ifconfig ---> yum install net-toolse
@@ -510,4 +502,95 @@ mail -->Need to install
 			 subject:
 			 (Email body)
 			 ctrl D 
+-----------------------------------------------------------------------------------------------------------------------------
+clear --> clears the screen --> Linux
+	In windows --> cls
+ 
+-------------------------------------------------------------------------------------------------------------
+cal --> Displays the calender
+	cal -1 --> display current month
+	cal -3 --> display previous,current,next month
+	cal <year> --> to display particular year
+	cal <month> <year> --> to display particular month and year 
+ 
+-----------------------------------------------------------------------------------------------------------
+sort ---> to arrange
+	vi friends.txt
+	content:wq
+	sort friends.txt
+	
+	or
+	
+	cat friends.txt | sort
+	
+	here | --> pipe
+	here cat command input is given as a output to the sort command by using pipe
+	
+	cat friends.txt | sort |tr [a-z] [A-Z]    ----> here sort command is given as output for other command
+						In this tr --> translate smaller letters to caps
+------------------------------------------------------------------------------------------------------------------						
+grep --> global regular expression print
+	Used to search for strings inside a file
+
+		grep Fida friends.txt    ---> to search content in particular file
+		grep -e "<pattern1>" -e "<pattern2>" --> To search for multiple patterns
+		grep -i zeba friends.txt  ---> to search content irrespective of case in file
+----------------------------------------------------------------------------------------------------------
+sed --->stream editor used to find and replace words
+	sed -n "90,98p" <filename> to search b/w range
+	sed -n "90p" tcsd.conf ----> for particular line to display
+	sed "s/<old string>/<new string>/" sample.txt   ---> To replace old string with new string 
+	sed "s/<old string>/<new string>/g" sample.txt  --> To replace old string with new string and make changes to the file
+	
+sed '2s/<old_string>/<new_string>/g' <file_name> --> To replace old string with new string in 2nd line
+sed '2,4s/<old_string>/<new_string>/g' <file_name> --> To replace old string with new string from 2nd to 4th line
+sed '2,$s/<old_string>/<new_string>/g' <file_name> --> To replace old string with new string from 2nd to end of file
+
+sed '4d' <file_name> --> To delete the 4th line
+sed '2,4d' <file_name> --> To delete the from 2nd to 4th line
+sed '2,$d' <file_name> --> To delete the 2nd to end of the file
+
+sed -n '2p' <file_name> --> To print the 2nd line
+sed -n '2,4p' <file_name> --> To print the 2nd to the 4th line
+sed -n '2,$p' <file_name> --> To print the 2nd to end of file
+
+---------------------------------------------------------------------------------------------------------
+SYESTEM RESOURCES COMMANDS
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+who --> To check all the users that are logged in to the server
+who -H ----> heading
+	This command gives about name,line,time,comment
+w ---> this gives more info about users and what they are doing
+uptime ---> how long the server is running
+users ---> which user are connected to the server --> just the user name in this command
+whoami --> To check the current user
+
+--------------------------------------------------------------------------------------------------------
+
+load average : how much cpu utilization it gives 3 values that is the interval time
+				1Min	5MIN	15th MIN
+				0.00	0.00	0.00
+    
+------------------------------------------------------------------------------------------------------------------------
+Binary files
+Manual files ---> documentation
+
+whereis <dir/file>--> it gives the path where that file or dir is
+man <dir> ---> description about what and all inside is this in that option
+
+----------------------------------------------------------------------------------------------------------
+date --> print or set the system date and time and time zone
+		As normal user can't set the date
+	timedatectl -->  to see complete details of time zone.
+ 
+------------------------------------------------------------------------------------------------	
+df ---> disk feed
+Hard disk indo will be in dev dirc
+File Size and Disk Size
+
+df -h --> To check the disk size of the server
+free -h --> To check the system memory of the server [RAM]
+
+du -sh <file_name> --> To check the file size
 
