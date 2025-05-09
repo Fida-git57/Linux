@@ -310,13 +310,13 @@ e.g:	chmod 777 devops.txt
 				u= users , g= groups , 0= execute
 				
 		chmod ugo-rwx <filename>  --> to remove all the permissions
-  --------------------------------------------------------------------------------------------------------------------------------
-  chown ---> ONLY ROOT USER SHOULD EXECUTE
+--------------------------------------------------------------------------------------------------------------------------------
+chown ---> ONLY ROOT USER SHOULD EXECUTE
 		to change the ownership(group)
 		
 	chown -R <directory name> --> to change the ownership of sub directories
- ------------------------------------------------------------------------------------------------------------------------------
- chgrp --> To change the groupname and filename
+------------------------------------------------------------------------------------------------------------------------------
+chgrp --> To change the groupname and filename
 chgrp -R groupname filename
 
 To check the groups we can see in etc/
@@ -556,8 +556,7 @@ sed -n '2,$p' <file_name> --> To print the 2nd to end of file
 
 ---------------------------------------------------------------------------------------------------------
 SYESTEM RESOURCES COMMANDS
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 who --> To check all the users that are logged in to the server
 who -H ----> heading
 	This command gives about name,line,time,comment
@@ -567,7 +566,6 @@ users ---> which user are connected to the server --> just the user name in this
 whoami --> To check the current user
 
 --------------------------------------------------------------------------------------------------------
-
 load average : how much cpu utilization it gives 3 values that is the interval time
 				1Min	5MIN	15th MIN
 				0.00	0.00	0.00
@@ -594,3 +592,39 @@ free -h --> To check the system memory of the server [RAM]
 
 du -sh <file_name> --> To check the file size
 
+----------------------------------------------------------------------------------------------------------------
+AUTOMATING/ SCHEDULING TASKS Commands
+--------------------------------------------------------------------------------------------------------------------------------------
+Crontab --> Cron table
+	By using this we going to schedule the jobs.
+	
+sudo touch /etc/cron.allow
+
+By root user
+crontab -l -->display how many jobs configered
+crontab -e ---> to edit
+crontab -r ---> to delete
+
+crontab -l -u fida --> to see others cron previlages which is by root
+
+sudo vi /etc/cron.allow
+
+Crontab format
+----> It has to be in same order
+# Minute	Hour	day of month		Month 			Day of week 		Command/ Script
+# (0-59)	(0-23)	(1-31)	  	   (1-12 or Jan-Dec)	       (0-6 or Sun-Sat)	         usr/bin/find 
+
+*/1 * * * * /home/ec2-user/hello.sh > /home/ec2-user/hello.log 2>&1 	---> This cron will redirect to log file and only new o/p will be displayed
+
+*/1 * * * * /home/ec2-user/hello.sh > /home/ec2-user/hello.log 2>&1		----> This cron will redirect to log file and only new & previous o/p will be displayed
+
+
+service : crond.service
+> : redirect std o/p
+>> : append std o/p 
+
+File descriptors
+
+0 --> std i/p 
+1 --> std o/p 
+2 --> std error
