@@ -633,8 +633,8 @@ File descriptors
 REMOTE ACCESS 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-SSH --> Is a command which is used to connecting to the server
-SYNTAX :	ssh username@ip/hn
+SSH [Secure shell] --> Is a command which is used to connecting to the server
+SYNTAX :ssh username@ip/hn
 	If we execute the above syntex
 	IT will ask passwd
 
@@ -649,15 +649,19 @@ SYNTAX :	ssh username@ip/hn
 	PasswordAuthetication yes
 	restart the sshd service --->service or systemctl
 	
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-scp -->secure copy
+------------------------------------------------------------------------------------------------
+scp [secure copy] : To copy the files over ssh
 	To copy files from one server to other server
 	
 syntax : scp filename username@ip/hn:/tmp/	--> to copy files 
-			password
+	password
 			
-		scp -r dirname username@ip/hn:/tmp/
-		password
+	scp -r dirname username@ip/hn:/tmp/
+	password
+rsync --> With rsync in case of any failure while copying, rsync has the ability to resume where the copy has stopped
+
+sudo service <process_name> stop -->It will gracefully stop a service
+Example: sudo service kubernetes stop
 
 wget <software download page link> --> To download any software within the server
 wget -O /tmp/maven.zip <link> --> to store in particular dirc
