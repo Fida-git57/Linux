@@ -628,3 +628,80 @@ File descriptors
 0 --> std i/p 
 1 --> std o/p 
 2 --> std error
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+REMOTE ACCESS 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+SSH --> Is a command which is used to connecting to the server
+SYNTAX :	ssh username@ip/hn
+	If we execute the above syntex
+	IT will ask passwd
+
+	ssh -i "Fidaarooj.pem" ec2-user@ec2-3-110-46-43.ap-south-1.compute.amazonaws.com
+	Here i=input---> The input is pemfile --> without asking password it will connect to the server.
+	
+	ssh ec2-user@3.110.46.43
+	It will give error
+	1.connect to server using pem file
+	2.switch to root and set the password
+	3. open vi /etc/ssh/sshd_config
+	PasswordAuthetication yes
+	restart the sshd service --->service or systemctl
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+scp -->secure copy
+	To copy files from one server to other server
+	
+syntax : scp filename username@ip/hn:/tmp/	--> to copy files 
+			password
+			
+		scp -r dirname username@ip/hn:/tmp/
+		password
+
+wget <software download page link> --> To download any software within the server
+wget -O /tmp/maven.zip <link> --> to store in particular dirc
+	(CAPS O)
+curl --> we can download the software.
+	curl -o maven.zip <link> -->to download
+
+Diff curl and wget
+	Compare to wget curl have many features.. cUrl commands supports multiple protocols and can be use to call APIs(Application Protocal Interface)
+	
+tee --> It is used to store and view the output of other command
+script --> it is going to create default file called typescript and going to record it.
+		script
+		typescript start recording
+		---
+		---
+		exit
+		
+	To give diff name for file --> script abc.txt
+	
+	To continue recording in previous files-->
+		script -a abc.txt
+			If we don't use -a it will overwrite
+
+ping --> i  sends ICMP echo request to network hosts
+	 ping -c 4 google.com --> to specify no. of times
+	 
+0-1023 --> Reserved ports
+0-65535 ---> Port no. range
+
+22-->ssh
+80-->HTTP
+443-->HTTPS
+25-->SMTP
+23-->
+
+telnet --> TO see sysytem connectivity
+history --> display the commands
+	By default it will maintain 1000 commands
+history -c --> To clean the history
+
+By using ping we can see only connectivity by using telnet we can see connectivity and can see wheter the port is enebled or not
+
+/etc/redhat-release
+
+watch --> to check date 
+shutdown --> root user
